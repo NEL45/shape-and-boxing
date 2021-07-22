@@ -6,7 +6,7 @@
     <h1>Edit Users</h1>
 
     {{ include('users/_form.html.twig', {'button_label': 'Update'}) }}
-
+    <img src="{{ vich_uploader_asset(user) }}">
     <a href="{{ path('users_index') }}">back to list</a>
 
     {{ include('users/_delete_form.html.twig') }}
