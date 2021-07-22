@@ -29,4 +29,12 @@ class UsersFixtures extends Fixture
         }
         $manager->flush();
     }
+
+    public function getDependencies()
+    {
+        return [
+          UsersFixtures::class,
+          PlanningFixtures::class,
+        ];
+    }
 }

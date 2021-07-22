@@ -1,23 +1,26 @@
 <nav class="navbar navbar-expand-lg fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="{{ path('accueil') }}">
-      <img class="bg-logo" src="{{ asset('build/images/boxing-logo.png') }}" alt="logo"></a>
-      <a class="nav-item nav-link active col-1 fs-1 fw-bold" href="{{ path('accueil') }}">ACCUEIL</a>
-      <a class="nav-item nav-link active col-1 fs-1 fw-bold px-5">LOGIN</a>
-      <p class="navbar-title col-6 text-center display-1">
-        SHAPE AND BOXING
-      </p>
-    
-    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler -icon"></span>
-    </button>
-    <div class="collapse navbar-collapse col-3" id="navbarNavAltMarkup">
-    <div class = "navbar-nav">
-          <a class="nav-item nav-link active text-end col-7 fs-1 fw-bold" href="{{ path('users_index') }}">LICENCIÉS</a>
-          <a class="nav-item nav-link active text-end col-4 fs-1 fw-bold">CONTACTS</a>
-          
-          {# <a class="nav-item nav-link active" href="{{ path('contact_') }}">Contact</a> #}
-    </div>
-    </div>
-  </p>
+	<div class="container-fluid">
+		<a class="navbar-brand" href="{{ path('accueil') }}">
+			<img class="bg-logo" src="{{ asset('build/images/boxing-logo.png') }}" alt="logo"></a>
+		<a class="nav-item nav-link active col-1 fs-3 fw-bold" href="{{ path('accueil') }}">ACCUEIL</a>
+		{% if is_granted('IS_ATHENTIFICATED_FULLY') %}
+    Bienvenue {{ app.user.name }} !
+			<a class="nav-item nav-link active text-end col-1 fs-3 fw-bold" href="{{ path('app_login') }}">DECONNEXION</a>
+		{% else %}
+			<a class="nav-item nav-link active text-end col-1 fs-3 fw-bold" href="{{ path('app_login') }}">CONNEXION</a>
+		{% endif %}
+		<p class="navbar-title col-6 text-center display-1">
+			SHAPE AND BOXING
+		</p>
+
+		<button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler -icon"></span>
+		</button>
+		<div class="collapse navbar-collapse col-3" id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link active text-end col-7 fs-3 fw-bold" href="{{ path('licensees') }}">PLANNING</a>
+				<a class="nav-item nav-link active text-end col-4 fs-3 fw-bold">BOXEURS</a>
+			</div>
+		</div>
+	</p>
 </nav>

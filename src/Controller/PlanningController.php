@@ -9,14 +9,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 /**
- * @Route("/planning")
+ * @Route("/admin/planning")
  */
 class PlanningController extends AbstractController
 {
     /**
      * @Route("/", name="planning_index", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function index(PlanningRepository $planningRepository): Response
     {
@@ -27,6 +30,7 @@ class PlanningController extends AbstractController
 
     /**
      * @Route("/new", name="planning_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,7 @@ class PlanningController extends AbstractController
 
     /**
      * @Route("/{id}", name="planning_show", methods={"GET"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function show(Planning $planning): Response
     {
@@ -60,6 +65,7 @@ class PlanningController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="planning_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Planning $planning): Response
     {
@@ -80,6 +86,7 @@ class PlanningController extends AbstractController
 
     /**
      * @Route("/{id}", name="planning_delete", methods={"POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Planning $planning): Response
     {

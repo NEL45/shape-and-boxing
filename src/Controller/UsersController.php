@@ -9,14 +9,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 /**
- * @Route("/users")
+ * @Route("/admin/users")
  */
 class UsersController extends AbstractController
 {
     /**
      * @Route("/", name="users_index", methods={"GET"})
+     * @IsGranted("ROLE_USER")
      */
     public function index(UsersRepository $usersRepository): Response
     {
@@ -27,9 +30,10 @@ class UsersController extends AbstractController
 
     /**
      * @Route("/new", name="users_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function new(Request $request): Response
-    {
+    {   
         $user = new Users();
         $form = $this->createForm(UsersType::class, $user);
         $form->handleRequest($request);
@@ -50,6 +54,7 @@ class UsersController extends AbstractController
 
     /**
      * @Route("/{id}", name="users_show", methods={"GET"})
+     * @IsGranted("ROLE_USER")
      */
     public function show(Users $user): Response
     {
@@ -60,6 +65,7 @@ class UsersController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="users_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function edit(Request $request, Users $user): Response
     {
@@ -80,6 +86,7 @@ class UsersController extends AbstractController
 
     /**
      * @Route("/{id}", name="users_delete", methods={"POST"})
+     * @IsGranted("ROLE_USER")
      */
     public function delete(Request $request, Users $user): Response
     {

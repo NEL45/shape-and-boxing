@@ -12,12 +12,15 @@ class UsersType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('name', null, ['attr' => [
+                'placeholder' => 'John Doe'
+            ]])
             ->add('lastname')
             ->add('age')
             ->add('weight')
             ->add('role_coach')
             ->add('role_licensee')
+            ->add('imageFile', VichImageType::class);
         ;
     }
 

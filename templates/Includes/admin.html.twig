@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Administration{% endblock %}
+
+{% block body %}
+    <header class="container-fluid m-3 p-2">
+    </header>
+    <main class="container">
+            <div class = "fw-bold text-center">
+                <p class = "titre">Accès administrateur</p>
+            </div>
+            <div class="card m-2 intro">
+                <div class="card-header">
+                     Mettre à jour vos données
+                </div>
+                <div class="card-body">
+                    <div class= "row p-4">
+                        <div class="d-flex flex-column mb-3">
+                            <div class = "row m-2">
+                                <a href="{{ path('users_index') }}" class="btn btn-primary">GÉRER LES COORDONNÉES DE VOS CABINETS</a>
+                            </div>
+                            <div class = "row m-2">
+                                <a href="{{ path('planning_index') }}" class="btn btn-primary">GÉRER VOS DIPLÔMES / FORMATIONS</a>
+                            </div>
+                            {# <div class = "row m-2">
+                                <a href="{{ path('user_index') }}" class="btn btn-primary">GÉRER VOTRE BIOGRAPHIE</a>
+                            </div>
+                            <div class = "row m-2">
+                                <a href="{{ path('service_index') }}" class="btn btn-primary">GÉRER VOS SERVICES</a>
+                            </div>
+                            <div class = "row m-2">
+                                <a href="{{ path('testimony_index') }}" class="btn btn-primary">GÉRER VOS AVIS CLIENTS</a>
+                            </div> #}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+{% endblock %}
