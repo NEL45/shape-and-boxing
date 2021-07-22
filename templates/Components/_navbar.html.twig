@@ -2,8 +2,9 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ path('accueil') }}">
       <img class="bg-logo" src="{{ asset('build/images/boxing-logo.png') }}" alt="logo"></a>
-      <a class="nav-item nav-link active col-1 text-end fs-1 fw-bold" href="{{ path('accueil') }}">ACCUEIL</a>
-      <p class="navbar-title col-6 text-end display-1">
+      <a class="nav-item nav-link active col-1 fs-1 fw-bold" href="{{ path('accueil') }}">ACCUEIL</a>
+      <a class="nav-item nav-link active col-1 fs-1 fw-bold px-5">LOGIN</a>
+      <p class="navbar-title col-6 text-center display-1">
         SHAPE AND BOXING
       </p>
     
@@ -12,11 +13,10 @@
     </button>
     <div class="collapse navbar-collapse col-3" id="navbarNavAltMarkup">
     <div class = "navbar-nav">
-          {# <a class="nav-item nav-link active text-end col-11 fs-1 fw-bold" href="{{ path('users') }}">LICENCIÉS</a> #}
-          <a class="nav-item nav-link active text-end col-6 fs-1 fw-bold">CONTACTS</a>
-          {# <a class="nav-item nav-link active" href="{{ path('entreprises') }}">Entreprises</a>
-          <a class="nav-item nav-link active" href="{{ path('contact_') }}">Contact</a>
-          <a target="_blank" a href="https://www.doctolib.fr/psychologue/orleans/loic-bretin" class="btn btn-primary">RDV Particuliers</a> #}
+          <a class="nav-item nav-link active text-end col-7 fs-1 fw-bold" href="{{ path('users_index') }}">LICENCIÉS</a>
+          <a class="nav-item nav-link active text-end col-4 fs-1 fw-bold">CONTACTS</a>
+          
+          {# <a class="nav-item nav-link active" href="{{ path('contact_') }}">Contact</a> #}
     </div>
     </div>
   </p>
